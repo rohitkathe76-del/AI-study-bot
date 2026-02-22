@@ -6,7 +6,8 @@ An intelligent AI-powered chatbot that answers academic questions and remembers 
 ---
 
 ## 🌐 Live Demo
-🔗 **[https://ai-study-bot.onrender.com](https://ai-study-bot.onrender.com)**
+🔗[ **[https://ai-study-bot.onrender.com](https://ai-study-bot.onrender.com)**](https://ai-study-bot-u4tt.onrender.com)
+
 
 ---
 
