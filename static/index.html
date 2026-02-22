@@ -34,7 +34,6 @@
       overflow: hidden;
     }
 
-    /* ── BACKGROUND GRID ── */
     body::before {
       content: '';
       position: fixed;
@@ -47,7 +46,6 @@
       z-index: 0;
     }
 
-    /* ── AMBIENT ORBS ── */
     .orb {
       position: fixed;
       border-radius: 50%;
@@ -65,7 +63,6 @@
       to   { transform: translate(30px,20px) scale(1.08); }
     }
 
-    /* ── LAYOUT ── */
     .app {
       position: relative;
       z-index: 1;
@@ -77,7 +74,6 @@
       padding: 0 16px;
     }
 
-    /* ── HEADER ── */
     header {
       display: flex;
       align-items: center;
@@ -92,11 +88,7 @@
       to   { opacity:1; transform:translateY(0); }
     }
 
-    .logo {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
+    .logo { display: flex; align-items: center; gap: 12px; }
 
     .logo-icon {
       width: 42px; height: 42px;
@@ -159,7 +151,6 @@
       50%      { opacity:0.3; }
     }
 
-    /* ── QUICK TOPICS ── */
     .topics-bar {
       display: flex;
       gap: 8px;
@@ -193,7 +184,6 @@
       transform: translateY(-1px);
     }
 
-    /* ── CHAT AREA ── */
     .chat-area {
       flex: 1;
       overflow-y: auto;
@@ -209,7 +199,6 @@
     .chat-area::-webkit-scrollbar-track { background: transparent; }
     .chat-area::-webkit-scrollbar-thumb { background: rgba(0,210,255,0.2); border-radius: 4px; }
 
-    /* ── EMPTY STATE ── */
     .empty-state {
       flex: 1;
       display: flex;
@@ -223,9 +212,7 @@
       opacity: 0;
     }
 
-    @keyframes fadeIn {
-      to { opacity: 1; }
-    }
+    @keyframes fadeIn { to { opacity: 1; } }
 
     .empty-icon {
       width: 80px; height: 80px;
@@ -283,7 +270,6 @@
     .suggestion-card .s-icon { font-size: 1.3rem; margin-bottom: 6px; }
     .suggestion-card .s-text { font-size: 0.78rem; color: var(--text-dim); line-height: 1.4; }
 
-    /* ── MESSAGES ── */
     .message {
       display: flex;
       gap: 10px;
@@ -310,9 +296,7 @@
       box-shadow: 0 0 14px var(--cyan-glow);
     }
 
-    .avatar.user-av {
-      background: linear-gradient(135deg, var(--purple), #4f46e5);
-    }
+    .avatar.user-av { background: linear-gradient(135deg, var(--purple), #4f46e5); }
 
     .bubble {
       max-width: 72%;
@@ -345,12 +329,7 @@
 
     .message.user .bubble-meta { text-align: right; }
 
-    /* ── TYPING INDICATOR ── */
-    .typing-indicator {
-      display: flex;
-      gap: 10px;
-      align-items: flex-start;
-    }
+    .typing-indicator { display: flex; gap: 10px; align-items: flex-start; }
 
     .typing-dots {
       display: flex;
@@ -377,7 +356,6 @@
       40%          { transform: translateY(-8px); opacity:1; }
     }
 
-    /* ── INPUT BAR ── */
     .input-section {
       padding: 12px 0 16px;
       border-top: 1px solid var(--border);
@@ -390,12 +368,7 @@
       to   { opacity:1; transform:translateY(0); }
     }
 
-    .user-id-row {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      margin-bottom: 10px;
-    }
+    .user-id-row { display: flex; align-items: center; gap: 8px; margin-bottom: 10px; }
 
     .user-id-label {
       font-size: 0.68rem;
@@ -471,11 +444,7 @@
       box-shadow: 0 0 28px var(--cyan-glow);
     }
 
-    .send-btn:disabled {
-      opacity: 0.4;
-      cursor: not-allowed;
-      box-shadow: none;
-    }
+    .send-btn:disabled { opacity: 0.4; cursor: not-allowed; box-shadow: none; }
 
     .input-hint {
       font-size: 0.65rem;
@@ -485,7 +454,6 @@
       letter-spacing: 0.5px;
     }
 
-    /* ── CLEAR BTN ── */
     .clear-btn {
       background: transparent;
       border: 1px solid rgba(255,80,80,0.3);
@@ -504,7 +472,6 @@
       background: rgba(255,80,80,0.08);
     }
 
-    /* ── CODE BLOCK inside bot message ── */
     .bubble pre {
       background: rgba(0,0,0,0.4);
       border: 1px solid var(--border);
@@ -518,7 +485,6 @@
       color: var(--green);
     }
 
-    /* ── SCROLLBAR hide for windows ── */
     * { scrollbar-width: thin; }
   </style>
 </head>
@@ -530,7 +496,6 @@
 
 <div class="app">
 
-  <!-- HEADER -->
   <header>
     <div class="logo">
       <div class="logo-icon">🧠</div>
@@ -548,7 +513,6 @@
     </div>
   </header>
 
-  <!-- QUICK TOPIC CHIPS -->
   <div class="topics-bar">
     <div class="topic-chip" onclick="quickAsk('Explain photosynthesis step by step')">🌿 Biology</div>
     <div class="topic-chip" onclick="quickAsk('Explain Newton\'s laws of motion')">⚙️ Physics</div>
@@ -561,9 +525,7 @@
     <div class="topic-chip" onclick="quickAsk('Tips to study effectively for exams')">📚 Study Tips</div>
   </div>
 
-  <!-- CHAT AREA -->
   <div class="chat-area" id="chatArea">
-    <!-- EMPTY STATE -->
     <div class="empty-state" id="emptyState">
       <div class="empty-icon">🚀</div>
       <h2>READY TO LEARN?</h2>
@@ -589,7 +551,6 @@
     </div>
   </div>
 
-  <!-- INPUT SECTION -->
   <div class="input-section">
     <div class="user-id-row">
       <span class="user-id-label">SESSION ID:</span>
@@ -613,14 +574,11 @@
 </div>
 
 <script>
-  // ── CONFIG ──────────────────────────────────────────────
-  // ✅ Empty string = uses same server (works both locally and on Render automatically)
-  const API_BASE = "";
+  // ✅ ONLY CHANGE — works on local, Render & mobile automatically!
+  const API_BASE = window.location.origin;
 
-  // ── STATE ───────────────────────────────────────────────
   let messages = [];
 
-  // ── HELPERS ─────────────────────────────────────────────
   function getTime() {
     return new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
   }
@@ -677,27 +635,20 @@
       </div>`;
   }
 
-  // ── RENDER MESSAGE ───────────────────────────────────────
   function renderMessage(role, text, time) {
     const area = document.getElementById('chatArea');
-
     const wrap = document.createElement('div');
     wrap.className = `message ${role}`;
-
     const av = document.createElement('div');
     av.className = `avatar ${role === 'bot' ? 'bot-av' : 'user-av'}`;
     av.textContent = role === 'bot' ? '🧠' : '👤';
-
     const right = document.createElement('div');
-
     const bubble = document.createElement('div');
     bubble.className = 'bubble';
     bubble.innerHTML = formatText(text);
-
     const meta = document.createElement('div');
     meta.className = 'bubble-meta';
     meta.textContent = time;
-
     right.appendChild(bubble);
     right.appendChild(meta);
     wrap.appendChild(av);
@@ -707,14 +658,12 @@
   }
 
   function formatText(text) {
-    // Basic markdown-ish formatting
     return text
       .replace(/```([\s\S]*?)```/g, '<pre>$1</pre>')
       .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
       .replace(/\n/g, '<br>');
   }
 
-  // ── TYPING INDICATOR ─────────────────────────────────────
   function showTyping() {
     const area = document.getElementById('chatArea');
     const el = document.createElement('div');
@@ -734,7 +683,6 @@
     if (el) el.remove();
   }
 
-  // ── SEND MESSAGE ─────────────────────────────────────────
   async function sendMessage() {
     const input = document.getElementById('msgInput');
     const sendBtn = document.getElementById('sendBtn');
@@ -744,8 +692,6 @@
     if (!question) return;
 
     hideEmpty();
-
-    // render user bubble
     renderMessage('user', question, getTime());
     input.value = '';
     input.style.height = 'auto';

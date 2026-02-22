@@ -62,12 +62,12 @@ chain = prompt | llm
 
 
 def get_chat_history(user_id):
-    chats = collection.find({"user_id": user_id}).sort("timestamp", 1)
+    chats = collection.find({"user_id": user_id}).sort("timestamp", -1).limit(10)
     history = []
     for chat in chats:
         history.append((chat["role"], chat["message"]))
+    history.reverse()
     return history
-
 
 # ✅ Serve index.html at root URL "/"
 @app.get("/")
